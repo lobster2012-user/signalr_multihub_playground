@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.Json" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.WebSockets" Version="2.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.WebSockets.Protocol" Version="0.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.WebSockets.Server" Version="0.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
+    <PackageReference Include="System.Net.WebSockets.WebSocketProtocol" Version="4.5.3" />
+    <PackageReference Include="System.Threading.Channels" Version="4.5.0" />
+  </ItemGroup>
+
+  <!--
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Authorization">
+      <HintPath>..\..\..\..\src\AspNetCore\src\Security\Authorization\Core\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization.Policy">
+      <HintPath>..\..\..\..\src\AspNetCore\src\Security\Authorization\Policy\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Authorization.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Connections">
+      <HintPath>..\..\..\..\src\AspNetCore\src\SignalR\common\Http.Connections\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Http.Connections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Connections.Common">
+      <HintPath>..\..\..\..\src\AspNetCore\src\SignalR\common\Http.Connections.Common\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Http.Connections.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SignalR">
+      <HintPath>..\..\..\..\src\AspNetCore\src\SignalR\server\SignalR\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SignalR.Client.Core">
+      <HintPath>..\..\..\..\src\AspNetCore\src\SignalR\clients\csharp\Client.Core\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.SignalR.Client.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SignalR.Common">
+      <HintPath>..\..\..\..\src\AspNetCore\src\SignalR\common\SignalR.Common\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.SignalR.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SignalR.Core">
+      <HintPath>..\..\..\..\src\AspNetCore\src\SignalR\server\Core\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SignalR.Protocols.Json">
+      <HintPath>..\..\..\..\src\AspNetCore\src\SignalR\common\Protocols.Json\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack">
+      <HintPath>..\..\..\..\src\AspNetCore\src\SignalR\common\Protocols.MessagePack\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.SignalR.Protocols.MessagePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebSockets">
+      <HintPath>..\..\..\..\src\AspNetCore\src\Middleware\WebSockets\src\bin\Debug\netstandard2.0\Microsoft.AspNetCore.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <HintPath>..\..\..\..\src\Extensions\src\DependencyInjection\DI\src\bin\Debug\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>..\..\..\..\src\Extensions\src\DependencyInjection\DI.Abstractions\src\bin\Debug\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  -->
+</Project>
