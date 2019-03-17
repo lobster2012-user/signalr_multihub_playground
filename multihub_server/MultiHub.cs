@@ -9,7 +9,7 @@ namespace multihub_server
 {
 
     /// <summary>
-    /// TODO: dynamic generate 
+    /// TODO: dynamic generation 
     /// </summary>
     public class MultiHub : MultiHubBase<IMultiClient>
     {
