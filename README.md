@@ -14,8 +14,8 @@ Only Server-Side.
     /// </summary>
     public class MultiHub : MultiHubBase<IMultiClient>
     {
-        private Hello1Hub Hello1Hub => CreateHub<Hello1Hub, IHello1Client>();
-        private Hello2Hub Hello2Hub => CreateHub<Hello2Hub, IHello2Client>();
+        private Hello1Hub Hello1Hub => CreateHub<Hello1Hub>();
+        private Hello2Hub Hello2Hub => CreateHub<Hello2Hub>();
 
         public MultiHub(ILogger<MultiHub> logger, IServiceProvider provider)
             : base(logger, provider, new[] { typeof(Hello1Hub), typeof(Hello2Hub) })
