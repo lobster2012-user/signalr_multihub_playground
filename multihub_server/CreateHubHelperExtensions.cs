@@ -8,6 +8,22 @@ namespace multihub_server
     //TODO: REWRITE
     public static class CreateHubHelperExtensions
     {
+        private static Type GetClientType(Type hubType)
+        {
+            while(hubType != null)
+            {
+                if (hubType.IsGenericType)
+                {
+                    if(hubType.GetGenericTypeDefinition() == typeof(Hub<>))
+                    {
+                        return hubType.GetGenericArguments()[0];
+                    }
+                }
+                hubType = hubType.BaseType;
+            }
+            throw new InvalidOperationException("not found client type");
+        }
+
         public delegate Hub CreateHubDelegate<TMulti>(MultiHubBase<TMulti> src1, MultiHubBase<TMulti> src2)
             where TMulti : class;
 
@@ -16,9 +32,7 @@ namespace multihub_server
       where TClient : class
       where THub : Hub<TClient>
         {
-            public static readonly CreateHubDelegate<TMulti> CreateHub = CreateHubFunc();
-
-            
+            public static readonly CreateHubDelegate<TMulti> CreateHub = CreateHubFunc();            
 
             private static CreateHubDelegate<TMulti> CreateHubFunc()
             {
@@ -37,7 +51,7 @@ namespace multihub_server
             }
             private static CreateHubDelegate<TMulti> CreateHubFuncImpl(Type hubType)
             {
-                var clientType = hubType.BaseType.GetGenericArguments()[0];
+                var clientType = GetClientType(hubType);
 
                 var method = typeof(CreateHubHelper<,,>)
                     .MakeGenericType(hubType, clientType, typeof(TMulti))
@@ -55,6 +69,13 @@ namespace multihub_server
               where TMulti : class
         {
             return CreateHubHelper<TMulti>.CreateHub(hub)(src, src);
+        }
+
+        public static THub CreateHub<THub,TMulti>(this MultiHubBase<TMulti> src)
+             where TMulti : class
+            where THub : Hub
+        {
+            return (THub)CreateHub<TMulti>(src, typeof(THub));
         }
 
         public static THub CreateHub<THub, TClient, TMulti>(this MultiHubBase<TMulti> src)

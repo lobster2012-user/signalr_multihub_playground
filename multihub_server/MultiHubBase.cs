@@ -127,8 +127,13 @@ namespace multihub_server
             where THub : Hub<TClient>
             where TClient : class
         {
-            return this.CreateHub<THub, TClient, TMulti>();
-        }        
+            return CreateHubHelperExtensions.CreateHub<THub, TClient, TMulti>(this);
+        }
+        protected THub CreateHub<THub>()
+            where THub : Hub
+        {
+            return CreateHubHelperExtensions.CreateHub<THub, TMulti>(this);
+        }
     }  
 
 }
