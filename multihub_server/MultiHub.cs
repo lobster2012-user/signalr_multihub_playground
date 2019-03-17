@@ -13,16 +13,8 @@ namespace multihub_server
     /// </summary>
     public class MultiHub : MultiHubBase<IMultiClient>
     {
-        protected override IEnumerable<Hub> GetHubs()
-        {
-            if (IsHubEnabled<Hello1Hub>())
-                yield return Hello1Hub;
-            if (IsHubEnabled<Hello1Hub>())
-                yield return Hello2Hub;
-        }
-
         public MultiHub(ILogger<MultiHub> logger, IServiceProvider provider) 
-            : base(logger, provider)
+            : base(logger, provider,  new[] { typeof(Hello1Hub), typeof(Hello2Hub)})
         {
         }
 

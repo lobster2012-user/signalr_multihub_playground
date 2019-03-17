@@ -13,26 +13,44 @@ namespace multihub_server
         where TMulti : class
     {
         private readonly IServiceProvider _provider;
+        private readonly Type[] _hubs;
         private HashSet<string> _enabledHubNames;
         protected ILogger _logger { get; private set; }
 
-        protected abstract IEnumerable<Hub> GetHubs();
+        protected virtual IEnumerable<Hub> GetHubs()
+        {
+            foreach(var h in _hubs)
+            {
+                if (IsHubEnabled(h))
+                    yield return this.CreateHub(h);
+            }
+        }
 
-        protected MultiHubBase(ILogger<MultiHub> logger, IServiceProvider provider)
+        protected MultiHubBase(ILogger<MultiHub> logger, IServiceProvider provider, params Type[] hubs)
         //     HubConnectionContext context)
         {
             logger.LogDebug("****** MultiHub-ctor");
             _provider = provider;
+            _hubs = hubs;
             _logger = logger;
             _logger.LogDebug("context");
             //   Console.WriteLine(_hubs);
             //   Console.WriteLine(_hubs);
         }
 
+        protected bool IsHubEnabled(string name)
+        {
+            return GetEnabledHubNames().Contains(name);
+        }
+        protected bool IsHubEnabled(Type hub)
+        {
+            return IsHubEnabled(hub.Name);
+        }
         protected bool IsHubEnabled<T>()
         {
-            return GetEnabledHubNames().Contains(typeof(T).Name);
+            return IsHubEnabled(typeof(T));
         }
+        
         protected void CheckHub<TClient>()
         {
             if (!IsHubEnabled<TClient>())
@@ -106,6 +124,8 @@ namespace multihub_server
         }
     
         protected THub CreateHub<THub, TClient>()
+            where THub : Hub<TClient>
+            where TClient : class
         {
             return this.CreateHub<THub, TClient, TMulti>();
         }        
