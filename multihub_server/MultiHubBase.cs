@@ -51,6 +51,7 @@ namespace multihub_server
             return IsHubEnabled(typeof(T));
         }
         
+        //TODO: CHECK _hubs.Contains()
         protected void CheckHub<TClient>()
         {
             if (!IsHubEnabled<TClient>())
